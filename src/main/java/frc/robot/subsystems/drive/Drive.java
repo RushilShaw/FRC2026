@@ -104,13 +104,10 @@ public class Drive extends SubsystemBase {
 
         // Stop moving when disabled
         if (DriverStation.isDisabled()) {
-            for (var module : modules) {
+            for (var module : modules) {  // TODO -> update var to datatype
                 module.stop();
             }
-        }
-
-        // Log empty setpoint states when disabled
-        if (DriverStation.isDisabled()) {
+            // Log empty setpoint states when disabled
             Logger.recordOutput("SwerveStates/Setpoints", new SwerveModuleState[] {});
             Logger.recordOutput("SwerveStates/SetpointsOptimized", new SwerveModuleState[] {});
         }
